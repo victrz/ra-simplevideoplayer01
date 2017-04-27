@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Video Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function onReady(e){
+          //99% of the time you will only pass e.. if you want to pass something else
+          //you may need to make another function to pass within e
+          var videoFigureTag = document.getElementById("video_player");
+          var videoTag = document.querySelector("#video_player video");
+          var sourceTag = document.querySelector("#video_player video source");
+        //  var sourceTag02 = document.querySelector("#video_player video source src");
+          var getAnchors = document.getElementsByTagName("a");
+          //but that could get you unwanted a tags on the page
+          var getAllAnchors = document.querySelectorAll;("#video_player figcaption a");
+          console.log(videoFigureTag);
+          console.log(videoTag);
+          console.log(sourceTag);
+          //console.log(sourceTag02);
+          console.log(getAnchors);
+
+          for (var ai = 0; ai <getAnchors.length; ai++){
+            console.log(getAnchors[ai].getAttribute("href"));
+
+            var currentAnchor = getAnchors[ai];
+            currentAnchor.addEventListener("click", onAnchorClick, false);
+          }
+
+        }
+
+    function onAnchorClick(e){
+      e.preventDefault();
+      //e is the link. this command prevents the link from opening a new page
+      var video = document.querySelector("#video_player video");
+      video.removeAttribute("controls");
+      video.removeAttribute("poster");
+      //good idea to put IDs on everything to make it easier to target
+      var currentElement = e.target;
+      //img target that generated the event
+      var currentLink = e.target.parentElement;
+      //anchor parentElement gives you the immediate parent of the target
+      console.log(currentLink);
+
+      var currentHref = currentLink.getAttribute("href");
+      var source = document.querySelectorAll("#video_player video source");
+      source[0].src = currentHref;
+      //may not be "src" in all objects.. might need to check for "url" or something else instead
+      video.load();
+      video.play();
+      
+
+
+    }
+
+
+        window.addEventListener("load", onReady, false);
+    </script>
+</head>
+<body>
+<h1>Welcome to My Video Player</h1>
+<figure id="video_player">
+    <video controls poster="./images/nambia1.jpg">
+        <source src="./media/nambia1.mp4" type="video/mp4">
+        <source src="./media/nambia1.webm" type="video/webm">
+    </video>
+    <figcaption>
+        <a href="./media/nambia1.mp4"><img src="./images/nambia1.jpg" alt="Nambia Timelapse 1"></a>
+        <a href="./media/nambia2.mp4"><img src="./images/nambia2.jpg" alt="Nambia Timelapse 2"></a>
+        <a href="./media/nambia3.mp4"><img src="./images/nambia3.jpg" alt="Nambia Timelapse 3"></a>
+    </figcaption>
+</figure>
+
+</body>
+</html>
