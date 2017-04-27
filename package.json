@@ -1,0 +1,19 @@
+{
+  "name": "ra-simplevideoplayer01",
+  "version": "1.0.0",
+  "description": "ES6 video player using gulp or webpack, SASS, and Babel (and other stuff)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victrz/ra-simplevideoplayer01.git"
+  },
+  "author": "Victoria T",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victrz/ra-simplevideoplayer01/issues"
+  },
+  "homepage": "https://github.com/victrz/ra-simplevideoplayer01#readme"
+}
